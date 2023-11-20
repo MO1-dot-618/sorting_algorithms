@@ -17,14 +17,21 @@ void insertion_sort_list(listint_t **list)
 	while (node)
 	{
 		nood = node;
-		while (nood->n < nood->prev->n && nood->prev != NULL)
+		while (nood->prev != NULL && nood->n < nood->prev->n)
 		{
 			tmp_next = nood->next;
 			nood->next = nood->prev;
 			nood->prev->next = tmp_next;
+			if (nood->prev->prev)
+				nood->prev->prev->next = nood;
+			else
+				*list = node;
 			tmp_prev = nood->prev->prev;
 			nood->prev->prev = nood;
 			nood->prev = tmp_prev;
+			if (nood->next->next)
+				nood->next->next->prev = nood->next;
+
 			print_list(*list);
 		}
 		node = node->next;
