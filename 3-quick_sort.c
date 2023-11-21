@@ -37,6 +37,7 @@ void lomuto_sort(int *array, size_t n, int lo, int hi)
  * @n: size of array
  * @lo: lowest index of the array
  * @hi: highest index of the array
+ * Return: pivot
  */
 int lomuto_partition(int *array, size_t n, int lo, int hi)
 {
