@@ -8,8 +8,8 @@
  */
 void shell_sort(int *a, size_t n)
 {
-	int gap = 1;
-	int i, j, temp;
+	size_t i, j, gap = 1;
+	int temp;
 
 	while (gap < n / 3)
 		gap = gap * 3 + 1;
